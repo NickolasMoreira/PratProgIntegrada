@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -65,6 +65,16 @@ public class ManterPaisController extends HttpServlet {
 			paises = tt.carregar(paises.getId());
 			request.setAttribute("paises", paises);  //Solicita que o servidor crie um novo atributo ou modifica um existente
 			dispatcher = request.getRequestDispatcher("Pais.jsp");
+			break;
+			
+		case "Listar":
+			pPopulacao = "0";
+			pArea = "0";
+			
+			ArrayList<Pais> pais = tt.listarTodos();
+			request.setAttribute("paises", pais);
+			dispatcher = request.getRequestDispatcher("ListaPais.jsp");
+			
 			
 		}
 		

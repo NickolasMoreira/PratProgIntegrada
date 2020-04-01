@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import Modelo.Pais;
+
+
 
 public class PaisesDAO {
 	
@@ -135,7 +138,7 @@ public class PaisesDAO {
 	
 	// SELECT 3 COUNTRIES //
 
-	public Pais[] tresPaises() {
+public Pais[] tresPaises() {
 		
 		Pais paises = null;
 		Pais[] vetor = new Pais[3];
@@ -167,11 +170,33 @@ public class PaisesDAO {
 			System.out.println(e1.getStackTrace());
 		}
 		return vetor;
+		}
+		
+		public ArrayList<Pais> listarTodos() {
+			ArrayList<Pais> paises = new ArrayList<>();
+			String sqlSelect = "SELECT id, nome, populacao, area FROM paises.pais";
+	
+
+			try (Connection conn = connectionFactory.obtemConexao();
+					PreparedStatement stm = conn.prepareStatement(sqlSelect);
+					ResultSet rs = stm.executeQuery();) {
+					while (rs.next()) {
+						Pais pais = new Pais();
+						pais.setId(rs.getInt("id"));
+						pais.setNome(rs.getString("nome"));
+						pais.setPopulacao(rs.getLong("populacao"));
+						pais.setArea(rs.getDouble("area"));
+						paises.add(pais);
+					} 
+			} catch (SQLException e1) {
+				System.out.print(e1.getStackTrace());
+			}
+		return paises;
 	}
 }
 
 
-//     FIM MÉTODOS DAO    // 
+ 
 
 
 

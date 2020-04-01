@@ -12,10 +12,10 @@
 
 <h1>País cadastrado!</h1><br>
 <p>
-ID: <%= pais.getId() %><br>
-Nome: <%= pais.getNome() %><br>
-População: <%= pais.getPopulacao() %><br>
-Área: <%= pais.getArea() %>
+<b>ID:</b> <%= pais.getId() %><br>
+<b>Nome:</b> <%= pais.getNome() %><br>
+<b>População:</b> <%= pais.getPopulacao() %><br>
+<b>Área:</b> <%= pais.getArea() %>
 </p>
 </body>
 </html>

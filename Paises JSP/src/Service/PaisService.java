@@ -1,6 +1,9 @@
 package Service;
 
 import Modelo.Pais;
+
+import java.util.ArrayList;
+
 import DAO.PaisesDAO;
 
 public class PaisService{
@@ -35,6 +38,11 @@ public class PaisService{
 	public Pais[] tresPaises() {
 		return dao.tresPaises();
 		
+	}
+	
+	public ArrayList<Pais> listarTodos(){
+		
+		return dao.listarTodos();
 	}
 
 }
