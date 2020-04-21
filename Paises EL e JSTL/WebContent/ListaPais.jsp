@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ page import ="Modelo.Pais, java.util.ArrayList" %>
+<%@ page import ="Modelo.Pais, java.util.ArrayList" %>
+<%@page language = "java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
     
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,23 @@ width: 100%;
 height: 2px;
 }
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
 </style>
 </head>
 <body>
@@ -25,28 +42,26 @@ height: 2px;
 <div class="container-fluid">  
 <h2 class="page-header">Lista de Paises</h2>
 <hr>
-<%
 	
-	ArrayList<Pais> papais = (ArrayList<Pais>)request.getAttribute("paises");
-	for(Pais pais:papais){
-%>
-    <div class="row">
-        <div id="listaP" class="col-md-4">
 
-                <p>
-                <b>ID:</b><%= pais.getId() %><br>	
-                <b>NOME:</b><%= pais.getNome() %>	<br>
-                <b>POPULACAO:</b><%=pais.getPopulacao() %>	<br>
-                <b>AREA:</b><%=pais.getArea() %><br>
-                </p> 
-                    
-
-        </div>
-
-</div>
-
-
-<% } %>
-</div> 
+    
+  
+		<table>
+		  <tr>	
+        <th><b>ID</b></th>
+          <th><b>Nome</b></th>
+            <th><b>População</b></th>
+              <th><b>Área</b></th>
+        </tr>
+        <c:forEach var="paises" items="${paises}">
+        <tr>
+        <td>${paises.id}</td>
+        <td>${paises.nome}</td>
+        <td>${paises.populacao}</td>
+        <td>${paises.area}</td>
+        </tr>
+		</c:forEach>
+		</table>
+		
 </body>
 </html>

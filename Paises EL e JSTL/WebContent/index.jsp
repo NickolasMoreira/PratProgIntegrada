@@ -23,6 +23,8 @@ height: 2px;
 <title>Cadastro de Paises</title>
 </head>
 <body>
+
+	<c:import url="Menu.jsp"/>
 	
 	<div id="main"	class="container">
 	<h3 class="page-header" align="center">Cadastro de Paises</h3>
