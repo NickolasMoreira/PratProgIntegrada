@@ -1,0 +1,4 @@
+O usuário ds  tentou login mas sem sucesso
+
+Login ou senha inválida!
+26/05/2020 18:39:32
