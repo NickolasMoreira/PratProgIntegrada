@@ -42,9 +42,8 @@ public class LoginPaisController extends HttpServlet {
 		Usuario user = new Usuario();
 		user = ps.logar(pUsuario);
 		CryptoMethod c = new CryptoMethod();
-		String usuario = "pratprog";
-		String teste = "1234";
-		user = ps.logar(usuario);
+
+		user = ps.logar(pUsuario);
 		
 		try {
 			String criptografa = c.criptografa(pSenha);
